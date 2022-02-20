@@ -4,6 +4,8 @@ use lessons::hello_world::hello;
 use lessons::reverse_string::reverse;
 use lessons::lasagna;
 use lessons::car_assembly;
+use lessons::logs;
+use lessons::logs::LogLevel;
 
 fn main() {
     println!("{}", hello());
@@ -17,4 +19,8 @@ fn main() {
 
     println!("{}", car_assembly::production_rate_per_hour(6));
     println!("{}", car_assembly::working_items_per_minute(6));
+
+    println!("{}", logs::log(LogLevel::Info, "info"));
+    println!("{}", logs::log(LogLevel::Error, "error"));
+    println!("{}", logs::log(LogLevel::Warning, "warning"));
 }
