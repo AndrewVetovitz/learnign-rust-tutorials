@@ -9,3 +9,7 @@ pub mod gigasecond;
 pub mod health_statistics;
 pub mod fibonacci;
 pub mod sum_of_multiples;
+pub mod prime;
+pub mod embedded_game;
+pub mod clock;
+pub mod macro_hashmap;

@@ -1,7 +1,7 @@
 mod lessons;
 
 use time::{PrimitiveDateTime as DateTime, Date,Time};
-use lessons::{*, reverse_string::reverse,hello_world::hello, health_statistics::User};
+use lessons::{*, reverse_string::reverse,hello_world::hello, health_statistics::User, clock::Clock};
 
 fn main() {
     println!("{}", hello());
@@ -51,4 +51,36 @@ fn main() {
 
     println!("sum: {}",  sum_of_multiples::sum_of_multiples(20, &[3,5,6,9,10,12,15,18]));
     println!("sum: {}",  sum_of_multiples::sum_of_multiples(15, &[4,6]));
+
+    println!("1st prime: {}",  prime::nth(1));
+    println!("10 th prime: {}",  prime::nth(10));
+    println!("100 th prime: {}",  prime::nth(100));
+
+    let div = embedded_game::divmod(30, 5);
+    let pos = embedded_game::Position(5, 6);
+    let mut iter = embedded_game::evens(2..);
+
+    println!("divisors: ({}, {})", div.0, div.1);
+    println!("manhattan distance: {}", pos.manhattan());
+    println!("iter next: {}", iter.next().unwrap());
+    println!("iter next: {}", iter.next().unwrap());
+
+    let clock = Clock::new(12, 30);
+    let clock1 = Clock::new(8, 0);
+    println!("clock: {}", clock);
+    println!("clock 1: {}", clock1);
+
+    let clock2 = clock.add_minutes(45);
+
+    println!("clock 2: {}", clock2);
+
+    println!("clock 24 hour: {}", Clock::new(24, 0).to_string());
+    println!("clock 25 hour: {}", Clock::new(25, 0).to_string());
+    println!("clock 2 hour rollover: {}", Clock::new(1, 60).to_string());
+    println!("clock minute rollover: {}", Clock::new(0, 160).to_string());  
+    println!("clock midnight: {}", Clock::new(72, 8640).to_string());
+    println!("clock negative time: {}", Clock::new(-1, 15).to_string());
+
+    let map = hashmap!('a' => 1, 'b' => 2);
+    println!("key: 'a' => value: {}", map.get(&'a').unwrap());
 }
