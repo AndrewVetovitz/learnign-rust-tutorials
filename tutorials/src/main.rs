@@ -67,6 +67,7 @@ fn main() {
 
     let clock = Clock::new(12, 30);
     let clock1 = Clock::new(8, 0);
+
     println!("clock: {}", clock);
     println!("clock 1: {}", clock1);
 
